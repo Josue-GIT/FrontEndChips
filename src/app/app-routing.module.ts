@@ -4,17 +4,21 @@ import { HomeComponent } from './pages/home/home.component';
 import { MedicoComponent } from './pages/medico/medico.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ServicioComponent } from './pages/servicio/servicio.component';
+import { LoginComponent } from './auth/login/login.component';
+import { RegistroComponent } from './auth/registro/registro.component';
 
 
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent },
   {path: 'medicos', component: MedicoComponent},
-  {path: 'servicios', component: ServicioComponent}
+  {path: 'servicios', component: ServicioComponent},
+  { path: 'iniciar-sesion', component: LoginComponent },
+  { path: 'registro', component: RegistroComponent },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes), HttpClientModule], // Asegúrate de importar HttpClientModule aquí
+  imports: [RouterModule.forRoot(routes), HttpClientModule], 
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

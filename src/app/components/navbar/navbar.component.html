@@ -10,11 +10,26 @@
             <h1>Servicios</h1>
         </a>
        
-        <ng-container>
+        <ng-container *ngIf="isLoggedIn | async">
             <a mat-button class="example-icon mr20" [routerLink]="'/perfil'">
                 <h1>Perfil</h1>
             </a>
         </ng-container>
         
     </div>
+    <span class="example-spacer"></span>
+    <ng-container *ngIf="isLoggedIn | async; else notLoggedIn">
+        <!-- Usuario autenticado -->
+        <a (click)="logout()" mat-button class="example-icon favorite-icon mr20">
+          <h1>Cerrar sesión</h1>
+        </a>
+    </ng-container>
+      <ng-template #notLoggedIn>
+        <a [routerLink]="'/iniciar-sesion'" mat-button class="example-icon favorite-icon mr20">
+          <h1>Iniciar sesión</h1>
+        </a>
+        <a [routerLink]="'/registro'" mat-button class="example-icon favorite-icon mr20">
+            <h1>Registrarse</h1>
+          </a>
+      </ng-template>
 </mat-toolbar>

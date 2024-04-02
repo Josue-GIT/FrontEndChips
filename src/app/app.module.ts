@@ -12,11 +12,17 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatCardModule} from '@angular/material/card';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './pages/home/home.component';
 import { MedicoComponent } from './pages/medico/medico.component';
 import { ServicioComponent } from './pages/servicio/servicio.component';
+import { LoginComponent } from './auth/login/login.component';
+import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
+import { MatOptionModule } from '@angular/material/core';
+import { RegistroComponent } from './auth/registro/registro.component';
 
 
 @NgModule({
@@ -25,19 +31,24 @@ import { ServicioComponent } from './pages/servicio/servicio.component';
     NavbarComponent,
     HomeComponent,
     MedicoComponent,
-    ServicioComponent
+    ServicioComponent,
+    LoginComponent,
+    RegistroComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    MatToolbarModule,
     BrowserAnimationsModule,
     MatButtonModule,
-    MatFormFieldModule,
+    FormsModule,
     MatInputModule,
-    MatSnackBarModule,
+    MatOptionModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    CommonModule,
     MatCardModule,
-    MatToolbarModule,
-    MatIconModule
+    MatIconModule, 
   ],
   providers: [],
   bootstrap: [AppComponent]
