@@ -1,0 +1,13 @@
+.profile-image-container {
+    width: 150px; /* Ancho recomendado */
+    height: 150px; /* Altura recomendada */
+    border-radius: 50%; /* Hace que el contenedor sea circular */
+    overflow: hidden; /* Oculta las partes de la imagen que están fuera del contenedor circular */
+    margin: 0 auto; /* Centra el contenedor horizontalmente */
+  }
+  
+  .profile-image {
+    width: 100%; /* Ajusta la imagen para que llene todo el contenedor */
+    height: 100%; /* Ajusta la imagen para que llene todo el contenedor */
+    object-fit: cover; /* Escala y recorta la imagen para que se ajuste al contenedor */
+  }
