@@ -1,8 +1,8 @@
-<p>perfil works!</p>
 <p>Usuario en sesión: {{ loggedInUserId }}</p>
+
 <div class="container mt-5">
     <div class="row justify-content-center">
-      <div class="col-md-6">
+      <div class="col-md-6" *ngIf="user">
         <div class="profile-image-container">
           <img mat-card-image [src]="dataToImage(user!.img) || 'https://via.placeholder.com/300'" alt="Imagen del evento" class="profile-image">
         </div>
@@ -13,7 +13,7 @@
           </div>
           <div class="card-body">
 
-            <div *ngIf="user">
+            <div>
               
               <div>
                 <div class="mb-3">

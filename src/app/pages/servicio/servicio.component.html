@@ -1,7 +1,19 @@
-<br><br><br>
-holaa
-<div *ngFor="let servicio of servicios" class="col-md-4 mb-4">
-    id:{{servicio.idservicio}} <br>
-    descripcion:{{servicio.descripcion}}<br>
-    <img mat-card-image [src]="dataToImage(servicio.img) || 'https://via.placeholder.com/300'" alt="Imagen del evento" class="img-fluid" style="width: 390px; height: 250px; border-radius: 5px; margin-left: 14px;">
-</div>
+<br><br><br><br>
+<div class="container">
+    <h2 class="text-center mb-4">Listado de Servicios</h2>
+    <div class="text-center mt-4">
+        <p>Descubre nuestros servicios y encuentra la atención que necesitas.</p>
+    </div>
+        <div class="row">
+      <div *ngFor="let servicio of servicios" class="col-md-4 mb-4">
+        <mat-card>
+            <img [src]="dataToImage(servicio.img) || 'https://via.placeholder.com/300'" alt="Imagen del servicio" class="card-img-top" style="width: 100%; height: 200px; object-fit: cover;">
+          <mat-card-content>
+            <h5 class="card-title">{{ servicio.titulo }}</h5>
+            <p class="card-text">{{ servicio.descripcion }}</p>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+  

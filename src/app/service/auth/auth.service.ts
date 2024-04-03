@@ -44,7 +44,7 @@ export class AuthService {
   }
   
   getLoggedInUserId(): number | null {
-    return this.loggedInUser ? this.loggedInUser.id : null;
+    return this.loggedInUser ? this.loggedInUser.idusuario : null;
   }
 
   logout(): void {

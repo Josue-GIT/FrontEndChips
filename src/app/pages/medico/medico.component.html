@@ -1,8 +1,28 @@
-<br><br><br>
-holaa
-<div *ngFor="let medico of medicos" class="col-md-4 mb-4">
-    id:{{medico.idmedico}} <br>
-    nombre:{{medico.nombre}}<br>
-    horario:{{medico.horario}} <br>
-    <img mat-card-image [src]="dataToImage(medico.img) || 'https://via.placeholder.com/300'" alt="Imagen del evento" class="img-fluid" style="width: 390px; height: 250px; border-radius: 5px; margin-left: 14px;">
-</div>
+<br><br><br><br>
+<div class="container">
+    <h2 class="text-center mb-4">Listado de Médicos</h2>
+    <div class="text-center mt-4">
+        <p>¡Explora nuestra lista de médicos para encontrar al especialista que necesitas!</p>
+      </div>
+    <div class="row">
+      <ng-container *ngIf="medicos.length > 0; else noMedicos">
+        <div *ngFor="let medico of medicos" class="col-md-4 mb-4">
+          <div class="card">
+            <img [src]="dataToImage(medico.img) || 'https://via.placeholder.com/300'" alt="Imagen del servicio" class="card-img-top" style="width: 100%; height: 200px; object-fit: cover;">
+
+            <div class="card-body">
+              <h5 class="card-title">{{ medico.nombre }}</h5>
+              <p class="card-text">Horario: {{ medico.horario }}</p>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+      <ng-template #noMedicos>
+        <div class="col-12 text-center">
+          <p>No se encontraron médicos disponibles.</p>
+          <p>Por favor, inténtelo de nuevo más tarde.</p>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+  

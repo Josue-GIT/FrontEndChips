@@ -13,6 +13,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {MatDialogModule} from '@angular/material/dialog';
 
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -23,6 +24,8 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { MatOptionModule } from '@angular/material/core';
 import { RegistroComponent } from './auth/registro/registro.component';
+import { PerfilComponent } from './pages/perfil/perfil.component';
+import { MascotaComponent } from './pages/mascota/mascota.component';
 
 
 @NgModule({
@@ -33,7 +36,9 @@ import { RegistroComponent } from './auth/registro/registro.component';
     MedicoComponent,
     ServicioComponent,
     LoginComponent,
-    RegistroComponent
+    RegistroComponent,
+    PerfilComponent,
+    MascotaComponent,
   ],
   imports: [
     BrowserModule,
@@ -49,6 +54,8 @@ import { RegistroComponent } from './auth/registro/registro.component';
     CommonModule,
     MatCardModule,
     MatIconModule, 
+    MatDialogModule,
+    MatToolbarModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,1 +1,19 @@
-<p>mascota works!</p>
+<br><br><br><br>
+<div class="container">
+    <h2 class="text-center mb-4">Mis Mascotas</h2>
+  
+    <div class="row">
+      <div *ngFor="let mascota of mascotas" class="col-md-4 mb-4">
+        <mat-card>
+          <img mat-card-image [src]="dataToImage(mascota.img) || 'https://via.placeholder.com/300'" alt="Imagen de la mascota" class="card-img-top">
+          <mat-card-content>
+            <h3>{{ mascota.nombre }}</h3>
+            <p><strong>Sexo:</strong> {{ mascota.sexo ? 'Macho' : 'Hembra' }}</p>
+            <p><strong>Especie:</strong> {{ mascota?.especie?.nombre }}</p>
+            <p><strong>Edad:</strong> {{ mascota.edad }}</p>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+  
