@@ -6,6 +6,7 @@ import { AuthService } from 'src/app/service/auth/auth.service';
 import { Usuario } from 'src/app/service/model/usuario';
 import { PerfilService } from 'src/app/service/perfil/perfil.service';
 
+
 @Component({
   selector: 'app-perfil',
   templateUrl: './perfil.component.html',
