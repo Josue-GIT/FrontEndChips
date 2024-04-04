@@ -12,11 +12,20 @@
 
             <div class="card-body">
               <h5 class="card-title">{{ medico.nombre }}</h5>
-              <p class="card-text">Horario: {{ medico.horario }}</p>
+              <p class="card-text">Dias disponibles: {{ medico.diaInicio }} a {{medico.diaFin}}</p>
+              <p class="card-text">Horario: {{ medico.horaInicio }} a {{medico.horaFin}}</p>
+              <button (click)="editarMedico(medico.idmedico)" mat-raised-button color="accent">Editar médico</button>
+              <button (click)="eliminarMedico(medico.idmedico)" mat-raised-button color="warn" style="margin-left: 5px;">Eliminar</button>
             </div>
           </div>
         </div>
       </ng-container>
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <p>Agrega un nuevo veterinario</p>
+          <button mat-raised-button color="primary" (click)="registrarMedico()">Agregar médico</button>
+        </div>
+      </div>
       <ng-template #noMedicos>
         <div class="col-12 text-center">
           <p>No se encontraron médicos disponibles.</p>

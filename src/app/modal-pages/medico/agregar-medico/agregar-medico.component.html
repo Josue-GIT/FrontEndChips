@@ -1,0 +1,69 @@
+<h2 mat-dialog-title style="margin-bottom: 20px;">Agregar Medico</h2>
+<form [formGroup]="registroForm" class="mt-5" style="margin-bottom: 72px; max-width: 2000px;">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header text-center">
+            <h2 class="mb-0">Registrar Medico</h2>
+          </div>
+          <div class="card-body">
+            <p class="text-danger">{{ registroError }}</p>
+            <div class="mb-3">
+              <label for="inputNombre" class="form-label">Nombre:</label>
+              <input formControlName="nombre" type="text" class="form-control" id="inputNombre" placeholder="Nombre del medico">
+            </div>
+            <div class="mb-3">
+                <label for="inputDiaInicio" class="form-label">Día de inicio:</label>
+                <input formControlName="diaInicio" type="text" class="form-control" id="inputDiaInicio" placeholder="Día de inicio" [matAutocomplete]="autoDiaInicio">
+                <mat-autocomplete #autoDiaInicio="matAutocomplete">
+                    <mat-option *ngFor="let dia of dias" [value]="dia">
+                        {{ dia }}
+                    </mat-option>
+                </mat-autocomplete>
+            </div>
+            <mat-form-field appearance="fill">
+                <mat-label>Hora de inicio</mat-label>
+                <input matInput formControlName="horaInicio" [matAutocomplete]="autoHoraInicio">
+                <mat-autocomplete #autoHoraInicio="matAutocomplete">
+                    <mat-option *ngFor="let hora of horas" [value]="hora">
+                        {{ hora }}
+                    </mat-option>
+                </mat-autocomplete>
+            </mat-form-field>
+            <div class="mb-3">
+                <label for="inputDiaFin" class="form-label">Día de fin:</label>
+                <input formControlName="diaFin" type="text" class="form-control" id="inputDiaFin" placeholder="Día de fin" [matAutocomplete]="autoDiaFin">
+                <mat-autocomplete #autoDiaFin="matAutocomplete">
+                    <mat-option *ngFor="let dia of dias" [value]="dia">
+                        {{ dia }}
+                    </mat-option>
+                </mat-autocomplete>
+            </div>
+            <mat-form-field appearance="fill">
+                <mat-label>Hora de fin</mat-label>
+                <input matInput formControlName="horaFin" [matAutocomplete]="autoHoraFin">
+                <mat-autocomplete #autoHoraFin="matAutocomplete">
+                    <mat-option *ngFor="let hora of horas" [value]="hora">
+                        {{ hora }}
+                    </mat-option>
+                </mat-autocomplete>
+            </mat-form-field>
+            <div class="mb-3">
+              <label class="form-label">Imagen:</label>
+              <input type="file" class="form-control" (change)="onFileSelected($event)">
+            </div>
+            <div class="text-center">
+              <button type="button" class="btn btn-primary" (click)="registrarMedico()">Agregar Medico</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+
+<div mat-dialog-actions>
+  <button mat-button  color="warn" (click)="cerrarModal()">Cerrar</button>
+  <button mat-button color="primary" (click)="registrarMedico()">Agregar Medico</button>
+</div>

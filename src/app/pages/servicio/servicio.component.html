@@ -11,8 +11,16 @@
           <mat-card-content>
             <h5 class="card-title">{{ servicio.titulo }}</h5>
             <p class="card-text">{{ servicio.descripcion }}</p>
+            <button (click)="editarServicio(servicio.idservicio)" mat-raised-button color="accent">Editar servicio</button>
+            <button (click)="eliminarServicio(servicio.idservicio)" mat-raised-button color="warn" style="margin-left: 5px;">Eliminar</button>
           </mat-card-content>
         </mat-card>
+      </div>
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <p>Agrega un servicio nuevo</p>
+          <button mat-raised-button color="primary" (click)="registrarServicio()">Agregar servicio</button>
+        </div>
       </div>
     </div>
   </div>

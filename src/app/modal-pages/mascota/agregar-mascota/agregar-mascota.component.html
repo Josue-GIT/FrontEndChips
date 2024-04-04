@@ -1,0 +1,54 @@
+<h2 mat-dialog-title style="margin-bottom: 20px;">Agregar Mascota</h2>
+<form [formGroup]="registroForm" class="mt-5" style="margin-bottom: 72px; max-width: 2000px;">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header text-center">
+            <h2 class="mb-0">Registrar Mascota</h2>
+          </div>
+          <div class="card-body">
+            <p class="text-danger">{{ registroError }}</p>
+            <div class="mb-3">
+              <label for="inputNombre" class="form-label">Nombre:</label>
+              <input formControlName="nombre" type="text" class="form-control" id="inputNombre" placeholder="Nombre de la mascota">
+            </div>
+            <!-- Selector de sexo -->
+            <div class="mb-3">
+                <label for="inputSexo" class="form-label">Sexo:</label>
+                <mat-radio-group formControlName="sexo">
+                  <mat-radio-button [value]="true">Macho</mat-radio-button>
+                  <mat-radio-button [value]="false">Hembra</mat-radio-button>
+                </mat-radio-group>
+              </div>
+            <div class="mb-3">
+              <label for="inputEdad" class="form-label">edad:</label>
+              <input formControlName="edad" type="number" class="form-control" id="inputEdad" placeholder="Edad de la mascota">
+            </div>
+            <mat-form-field class="mb-3">
+                <input type="text" placeholder="Selecciona una especie" aria-label="Especie" matInput [formControl]="especieControl" [matAutocomplete]="auto">
+                <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete" [displayWith]="displayEspecie">
+                    <mat-option *ngFor="let especie of especies" [value]="especie">
+                        {{ especie.nombre }}
+                    </mat-option>
+                </mat-autocomplete>
+            </mat-form-field>
+            <div class="mb-3">
+              <label class="form-label">Imagen:</label>
+              <input type="file" class="form-control" (change)="onFileSelected($event)">
+            </div>
+            <div class="text-center">
+              <!-- Botón para registrar la mascota -->
+              <button type="button" class="btn btn-primary" (click)="registrarMascota()">Agregar Mascota</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+
+<div mat-dialog-actions>
+  <button mat-button  color="warn" (click)="cerrarModal()">Cerrar</button>
+  <button mat-button color="primary" (click)="registrarMascota()">Agregar Mascota</button>
+</div>

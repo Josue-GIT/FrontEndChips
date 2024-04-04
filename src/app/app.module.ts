@@ -26,7 +26,14 @@ import { MatOptionModule } from '@angular/material/core';
 import { RegistroComponent } from './auth/registro/registro.component';
 import { PerfilComponent } from './pages/perfil/perfil.component';
 import { MascotaComponent } from './pages/mascota/mascota.component';
-
+import { AgregarMascotaComponent } from './modal-pages/mascota/agregar-mascota/agregar-mascota.component';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {MatRadioModule} from '@angular/material/radio';
+import { EditarMascotaComponent } from './modal-pages/mascota/editar-mascota/editar-mascota.component';
+import { AgregarMedicoComponent } from './modal-pages/medico/agregar-medico/agregar-medico.component';
+import { EditarMedicoComponent } from './modal-pages/medico/editar-medico/editar-medico.component';
+import { AgregarServicioComponent } from './modal-pages/servicio/agregar-servicio/agregar-servicio.component';
+import { EditarServicioComponent } from './modal-pages/servicio/editar-servicio/editar-servicio.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +46,12 @@ import { MascotaComponent } from './pages/mascota/mascota.component';
     RegistroComponent,
     PerfilComponent,
     MascotaComponent,
+    AgregarMascotaComponent,
+    EditarMascotaComponent,
+    AgregarMedicoComponent,
+    EditarMedicoComponent,
+    AgregarServicioComponent,
+    EditarServicioComponent,
   ],
   imports: [
     BrowserModule,
@@ -56,6 +69,8 @@ import { MascotaComponent } from './pages/mascota/mascota.component';
     MatIconModule, 
     MatDialogModule,
     MatToolbarModule,
+    MatAutocompleteModule,
+    MatRadioModule
   ],
   providers: [],
   bootstrap: [AppComponent]

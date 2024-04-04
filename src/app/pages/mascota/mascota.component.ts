@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { Router } from '@angular/router';
+import { AgregarMascotaComponent } from 'src/app/modal-pages/mascota/agregar-mascota/agregar-mascota.component';
 import { AuthService } from 'src/app/service/auth/auth.service';
 import { MascotaService } from 'src/app/service/mascota/mascota.service';
 import { Mascota } from 'src/app/service/model/mascota';
@@ -15,7 +16,8 @@ export class MascotaComponent implements OnInit{
 
   loggedInUserId: number | null = null;
   mascotas: Mascota[] | null = null;
-
+  modalAbierto: boolean = false;
+  
   constructor(private authService: AuthService,
     private mascotaService: MascotaService,
     private dialog: MatDialog,
@@ -46,5 +48,20 @@ export class MascotaComponent implements OnInit{
         }
       );
     }
+  }
+
+  registrarMascota() {
+    const dialogRef = this.dialog.open(AgregarMascotaComponent, {
+      width: '900px', 
+    });
+  
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('El modal de mascotas se cerró');
+      this.obtenerMascotasDeUsuario();
+    });
+  }
+  
+  cerrarModal() {
+    this.modalAbierto = false;
   }
 }

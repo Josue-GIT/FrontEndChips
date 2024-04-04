@@ -15,4 +15,16 @@ export class ServicioService {
   obtenerServicios(): Observable<Servicio[]> {
     return this.http.get<Servicio[]>(`${this.apiUrl}/listar`);
   }
+
+  registrarServicio(servicio: FormData): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/guardar`, servicio);
+  }
+
+  editarServicio(servicioId: number, servicio: FormData): Observable<any> {
+    return this.http.put<any>(`${this.apiUrl}/editar/${servicioId}`, servicio);
+  }
+  
+  eliminarServicio(servicioId: number): Observable<any> {
+    return this.http.delete<any>(`${this.apiUrl}/eliminar/${servicioId}`);
+  }
 }

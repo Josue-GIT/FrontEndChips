@@ -1,7 +1,9 @@
 export interface Medico {
     idmedico: number;
     nombre: string;
-    horario: string;
-    fecha_nacimiento: string;
+    diaInicio: string;
+    diaFin: string;
+    horaInicio: string;
+    horaFin: string;
     img: string;
   }
